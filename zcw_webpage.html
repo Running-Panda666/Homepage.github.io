@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chenwei Zhao - Personal Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #777;
+            --spacing: 20px;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: var(--spacing) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: var(--spacing);
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            margin-left: var(--spacing);
+        }
+
+        .language-switcher button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .language-switcher button.active {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: calc(var(--spacing) * 2);
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            min-height: auto;
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        #home {
+            display: block;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: calc(var(--spacing) * 2);
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Home Section */
+        .home-content {
+            display: flex;
+            align-items: center;
+            gap: calc(var(--spacing) * 2);
+        }
+
+        .home-text {
+            flex: 1;
+        }
+
+        .home-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .home-image img {
+            max-width: 80%;
+            border-radius: 10%;
+            border: 5px solid var(--secondary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            background: white;
+            padding: var(--spacing);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing);
+            margin-top: 30px;
+        }
+
+        .skill-category {
+            background-color: white;
+            padding: var(--spacing);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing);
+            text-align: center;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), #2980b9);
+            border-radius: 5px;
+        }
+
+        .cv-download {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Education & Experience */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -13px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content .date {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Research Experience Section */
+        .research-item {
+            background-color: white;
+            padding: var(--spacing);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: var(--spacing);
+        }
+
+        .research-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .research-content {
+            margin-top: var(--spacing);
+            display: none;
+        }
+
+        .research-content.active {
+            display: block;
+        }
+
+        .toggle-icon {
+            transition: var(--transition);
+        }
+
+        .toggle-icon.active {
+            transform: rotate(180deg);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing);
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-content {
+            padding: var(--spacing);
+        }
+
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing);
+        }
+
+        .award-card {
+            background-color: white;
+            padding: var(--spacing);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .award-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            margin: var(--spacing) 0;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: var(--spacing);
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .home-content {
+                flex-direction: column;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 18px;
+            }
+
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+            }
+        }
+
+        /* Language Specific */
+        .lang-en {
+            display: none;
+        }
+
+        /* Navigation active state */
+        nav ul li a.active {
+            background-color: var(--secondary-color);
+        }
+    </style>
+<style>:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --text-color: #333;
+    --text-light: #777;
+    --spacing: 20px;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f9f9f9;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+}
+
+/* Header & Navigation */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+    color: white;
+    padding: var(--spacing) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--secondary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: var(--spacing);
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    margin-left: var(--spacing);
+}
+
+.language-switcher button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.language-switcher button.active {
+    background-color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: calc(var(--spacing) * 2);
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Sections */
+section {
+    padding: 80px 0;
+}
+
+section:nth-child(even) {
+    background-color: white;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: calc(var(--spacing) * 2);
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color);
+}
+
+.section-title p {
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 50%;
+    border: 5px solid var(--secondary-color);
+    box-shadow: var(--shadow);
+}
+
+/* 其他CSS样式：时间轴、技能栏、项目卡片、联系信息等 */
+/* 这里省略了重复的样式，实际文件中需要保留 */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: var(--spacing);
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    .timeline-item::after {
+        left: 18px;
+    }
+
+    .timeline-item:nth-child(odd)::after {
+        right: auto;
+    }
+}
+
+/* Language Specific */
+.lang-en {
+    display: none;
+}</style></head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Chenwei <span>Zhao</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#home" class="nav-link active" data-section="home">主页</a></li>
+                        <li><a href="#education" class="nav-link" data-section="education">教育</a></li>
+                        <li><a href="#research" class="nav-link" data-section="research">研究</a></li>
+                        <li><a href="#projects" class="nav-link" data-section="projects">项目</a></li>
+                        <li><a href="#awards" class="nav-link" data-section="awards">荣誉</a></li>
+                    </ul>
+                </nav>
+                <div class="language-switcher">
+                    <button id="lang-zh" class="active">中文</button>
+                    <button id="lang-en">English</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="lang-zh">赵晨炜 - 个人主页</h1>
+                <h1 class="lang-en">Chenwei Zhao - Personal Homepage</h1>
+                <p class="lang-zh">北京大学 · 机械工程 · 硕士</p>
+                <p class="lang-en">Peking University · Mechanical Engineering · Master Candidate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Home Section -->
+    <section id="home" class="active">
+        <div class="container">
+            <div class="home-content">
+                <div class="home-text">
+                    <h2 class="lang-zh">个人简介</h2>
+                    <h2 class="lang-en">About Me</h2>
+                    
+                    <p class="lang-zh">我是北京大学机械工程专业的硕士研究生，专注于热管理、强化学习和机器人控制的研究。在三维堆叠芯片动态热管理、网络结构与博弈论机制共同演化以及上肢康复外骨骼机器人控制系统设计方面有丰富的研究经验。</p>
+
+                    <p class="lang-en">I am a Master's candidate in Mechanical Engineering at Peking University, focusing on thermal management, reinforcement learning, and robotic control. I have extensive research experience in dynamic thermal management of 3D stacked chips, co-evolution of network structure and game theory mechanisms, and control system design for upper limb rehabilitation exoskeleton robots.</p>
+                    
+                    <div class="contact-info">
+                        <h3 class="lang-zh">联系方式</h3>
+                        <h3 class="lang-en">Contact Information</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>2301213176@stu.pku.edu.cn</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+86 156-4712-8070</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="lang-zh">北京市海淀区北京大学宿舍楼32号房间</span>
+                            <span class="lang-en">Room 32, Dormitory Building, Peking University, Haidian District, Beijing, China</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-download">
+                        <a href="#" class="btn">
+                            <i class="fas fa-download"></i> 
+                            <span class="lang-zh">下载我的简历</span>
+                            <span class="lang-en">Download My CV</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="home-image">
+                    <img src="https://via.placeholder.com/300x300?text=Chenwei+Zhao" alt="Chenwei Zhao">
+                </div>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="lang-zh">编程语言</h3>
+                    <h3 class="lang-en">Programming Languages</h3>
+                    <ul>
+                        <li>Python (精通)</li>
+                        <li>C++</li>
+                        <li>R</li>
+                        <li>MATLAB</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="lang-zh">AI框架</h3>
+                    <h3 class="lang-en">AI Frameworks</h3>
+                    <ul>
+                        <li>TensorFlow</li>
+                        <li>Keras</li>
+                        <li>PyTorch</li>
+                        <li>Scikit-learn</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="lang-zh">语言能力</h3>
+                    <h3 class="lang-en">Language Skills</h3>
+                    <ul>
+                        <li class="lang-zh">中文：母语</li>
+                        <li class="lang-en">Chinese: Native</li>
+                        <li class="lang-zh">英语：流利</li>
+                        <li class="lang-en">English: Fluent</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-zh">教育背景</h2>
+                <h2 class="lang-en">Education</h2>
+                <p class="lang-zh">我的学术历程和成就</p>
+                <p class="lang-en">My academic journey and achievements</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="lang-zh">北京大学</h3>
+                        <h3 class="lang-en">Peking University</h3>
+                        <span class="date lang-zh">2023年9月 - 至今</span>
+                        <span class="date lang-en">Sept 2023 - Present</span>
+                        <p class="lang-zh">机械工程 · 硕士研究生</p>
+                        <p class="lang-en">Mechanical Engineering · Master Candidate</p>
+                        <p class="lang-zh">导师: 张新荣教授</p>
+                        <p class="lang-en">Advisor: Prof. Zhang Xinrong</p>
+                        <p class="lang-zh">相关课程: 高等传热学, 数值方法, 强化学习</p>
+                        <p class="lang-en">Relevant Coursework: Advanced Heat Transfer, Numerical Methods, Reinforcement Learning</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="lang-zh">华南理工大学</h3>
+                        <h3 class="lang-en">South China University of Technology</h3>
+                        <span class="date lang-zh">2019年9月 - 2023年6月</span>
+                        <span class="date lang-en">Sept 2019 - Jun 2023</span>
+                        <p class="lang-zh">智能制造工程 · 工学学士</p>
+                        <p class="lang-en">Intelligent Manufacturing Engineering · Bachelor of Engineering</p>
+                        <p class="lang-zh">GPA: 3.82/4.0, 91.11/100 (专业前5%)</p>
+                        <p class="lang-en">GPA: 3.82/4.0, 91.11/100 (Top 5% in Major)</p>
+                        <p class="lang-zh">毕业论文: 基于LSTM的上肢康复外骨骼机器人控制系统设计</p>
+                        <p class="lang-en">Thesis: LSTM-based Control System Design for Upper Limb Rehabilitation Exoskeleton Robot</p>
+                        <p class="lang-zh">相关课程: 微积分(99/100, 排名1/243), 概率与统计(97/100), 数据结构(94/100)</p>
+                        <p class="lang-en">Relevant Coursework: Calculus(99/100, Rank 1/243), Probability & Statistics(97/100), Data Structures(94/100)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Experience Section -->
+    <section id="research">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-zh">研究经历</h2>
+                <h2 class="lang-en">Research Experience</h2>
+                <p class="lang-zh">我参与的研究项目和成果</p>
+                <p class="lang-en">Research projects and achievements I've participated in</p>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header">
+                    <div>
+                        <h3 class="lang-zh">先进热管理实验室 - 研究助理</h3>
+                        <h3 class="lang-en">Research Assistant - Advanced Thermal Management Lab</h3>
+                        <span class="date lang-zh">2023年8月 - 至今</span>
+                        <span class="date lang-en">Aug 2023 - Present</span>
+                    </div>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="research-content">
+                    <p class="lang-zh"><strong>导师:</strong> 张新荣教授, 北京大学</p>
+                    <p class="lang-en"><strong>Advisor:</strong> Prof. Zhang Xinrong, Peking University</p>
+                    
+                    <div class="research-details">
+                        <div class="lang-zh">
+                            <h4>项目概述:</h4>
+                            <p>开创了一种新颖的三层混合框架（SPH微观建模 + SAC-DRL控制 + 安全监控器）用于三维堆叠芯片的动态热管理。</p>
+                            
+                            <h4>主要贡献:</h4>
+                            <ul>
+                                <li>使用平滑粒子流体动力学（SPH）建模芯片热动力学，优化CUDA数据交互并降维以防止梯度爆炸</li>
+                                <li>为Soft Actor-Critic（SAC）算法设计多目标奖励函数，平衡温度、能耗和均匀性，动态优化Robin边界参数</li>
+                                <li>在ExHFT-11会议上展示研究成果，完整手稿正在准备提交至Applied Thermal Engineering（JCR Q1期刊）</li>
+                            </ul>
+                            
+                            <h4>成果:</h4>
+                            <ul>
+                                <li>与传统PID控制器相比，峰值温度降低45%，冷却能耗降低25%，控制更新时间缩短至50ms（快75%）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="lang-en">
+                            <h4>Project Overview:</h4>
+                            <p>Pioneered a novel three-tier hybrid framework (SPH microscopic modeling + SAC-DRL control + safety monitor) for dynamic thermal management in 3D stacked chips.</p>
+                            
+                            <h4>Key Contributions:</h4>
+                            <ul>
+                                <li>Modeled chip thermal dynamics using Smoothed Particle Hydrodynamics (SPH), optimizing CUDA data interaction and reducing dimensions to prevent gradient explosion</li>
+                                <li>Designed a multi-objective reward function for the Soft Actor-Critic (SAC) algorithm to balance temperature, energy consumption, and uniformity, dynamically optimizing Robin boundary parameters</li>
+                                <li>Presented the research at the ExHFT-11 Conference; the full manuscript is under preparation for submission to Applied Thermal Engineering (a leading journal in thermal engineering, JCR Q1)</li>
+                            </ul>
+                            
+                            <h4>Achievements:</h4>
+                            <ul>
+                                <li>Reduced peak temperature by 45%, decreased cooling energy consumption by 25%, and slashed control update time to 50ms (75% faster) compared to traditional PID controllers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-item">
+                <div class="research-header">
+                    <div>
+                        <h3 class="lang-zh">复杂系统实验室 - 研究助理</h3>
+                        <h3 class="lang-en">Research Assistant - Complex Systems Lab</h3>
+                        <span class="date lang-zh">2022年9月 - 2023年10月</span>
+                        <span class="date lang-en">Sept 2022 - Oct 2023</span>
+                    </div>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="research-content">
+                    <p class="lang-zh"><strong>导师:</strong> 李阿明教授, 北京大学</p>
+                    <p class="lang-en"><strong>Advisor:</strong> Prof. Li Aming, Peking University</p>
+                    
+                    <div class="research-details">
+                        <div class="lang-zh">
+                            <h4>项目概述:</h4>
+                            <p>研究网络结构和博弈论机制在促进群体合作方面的共同演化。</p>
+                            
+                            <h4>主要贡献:</h4>
+                            <ul>
+                                <li>复现和调试经典模型（如Fu Feng等），修复伙伴切换算法缺陷</li>
+                                <li>创新地将时间网络与声誉机制耦合，发现"弱记忆声誉更新（g = 1 - 5）"最大化合作频率</li>
+                                <li>构建了新颖的PD/PGG不确定选择模型，利用5D数据分析和3D热图识别最优合作参数（p = 0.3 - 0.5）</li>
+                            </ul>
+                            
+                            <h4>成果:</h4>
+                            <ul>
+                                <li>证明时间网络比静态网络提高合作率15-20%，在复现PGG模型时达到>85%的相似度</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="lang-en">
+                            <h4>Project Overview:</h4>
+                            <p>Investigated the co-evolution of network structure and game theory mechanisms on promoting group cooperation.</p>
+                            
+                            <h4>Key Contributions:</h4>
+                            <ul>
+                                <li>Reproduced and debugged classic models (e.g., Fu Feng et al.), fixing partner-switching algorithmic flaws</li>
+                                <li>Innovated by coupling temporal networks with a reputation mechanism, discovering that "weak-memory reputation update (g = 1 - 5)" maximizes cooperation frequency</li>
+                                <li>Constructed a novel PD/PGG uncertain choice model, utilizing 5D data analysis and 3D heatmaps to identify optimal cooperation parameters (p = 0.3 - 0.5)</li>
+                            </ul>
+                            
+                            <h4>Achievements:</h4>
+                            <ul>
+                                <li>Demonstrated that temporal networks boost cooperation by 15-20% over static networks and achieved > 85% similarity in replicating the PGG model</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-zh">项目经历</h2>
+                <h2 class="lang-en">Project Experience</h2>
+                <p class="lang-zh">我参与的重要项目和成果</p>
+                <p class="lang-en">Important projects and achievements I've participated in</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #3498db;"></div>
+                    <div class="project-content">
+                        <h3 class="lang-zh">油罐开口识别项目</h3>
+                        <h3 class="lang-en">Oil Tank Opening Recognition Project</h3>
+                        <span class="date">2024年6月 - 2025年2月</span>
+                        <p class="lang-zh"><strong>合作方:</strong> 石油运输公司</p>
+                        <p class="lang-en"><strong>Collaboration:</strong> Oil Transportation Company</p>
+                        <ul>
+                            <li class="lang-zh">领导4人团队与当地石油运输公司合作，解决人工油罐开口检查效率低、错误率高的问题</li>
+                            <li class="lang-zh">负责算法设计和模型训练：构建基于YOLOv8的目标检测模型，优化小尺寸油罐开口的锚框，引入使用自定义数据集的迁移学习（2800张不同光照/天气条件下标注的油罐图像）</li>
+                            <li class="lang-zh">成果：减少人工检查时间60%，识别准确率提高至98.2%（初始YOLOv8模型为89.5%），通过公司100+测试用例的现场验证</li>
+                            
+                            <li class="lang-en">Led a 4-member team to collaborate with a local oil transportation company, addressing the pain point of low efficiency and high error rate in manual oil tank opening inspection</li>
+                            <li class="lang-en">Responsible for algorithm design and model training: Built a YOLOv8-based object detection model, optimized anchor boxes for small-size tank openings, and introduced transfer learning using a custom dataset (2,800 annotated images of oil tanks under various lighting/weather conditions)</li>
+                            <li class="lang-en">Achievements: Reduced manual inspection time by 60%, improved recognition accuracy to 98.2% (up from 89.5% of the initial YOLOv8 model), and passed the company's on-site validation with 100+ test cases</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #3498db;"></div>
+                    <div class="project-content">
+                        <h3 class="lang-zh">机器学习课程项目</h3>
+                        <h3 class="lang-en">Machine Learning Course Projects</h3>
+                        <span class="date">2022年1月 - 2022年2月</span>
+                        <p class="lang-zh"><strong>机构:</strong> 麦吉尔大学（远程）</p>
+                        <p class="lang-en"><strong>Institution:</strong> McGill University (Remote)</p>
+                        <ul>
+                            <li class="lang-zh">项目1（图像分类）：构建带有数据增强（随机旋转/缩放）的CNN模型，用于10类图像任务（32,000个样本）。最终验证准确率达到97.75%</li>
+                            <li class="lang-zh">项目2（文本分类 - 班级排名第2）：为4类新闻分类任务（120,000个样本）设计了2-gram词袋模型。使用Keras TextVectorization实现端到端管道集成，准确率显著优于1-gram模型15-20%</li>
+                            
+                            <li class="lang-en">Project 1 (Image Classification): Built a CNN model with data augmentation (random rotation/zoom) for a 10-class image task (32,000 samples). Achieved a final validation accuracy of 97.75%</li>
+                            <li class="lang-en">Project 2 (Text Classification - Ranked 2nd in Class): Engineered a 2-gram Bag-of-Words model for a 4-class news categorization task (120,000 samples). Implemented end-to-end pipeline integration with Keras TextVectorization, significantly outperforming 1-gram models by 15-20% in accuracy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-zh">荣誉与奖项</h2>
+                <h2 class="lang-en">Honors & Awards</h2>
+                <p class="lang-zh">我获得的荣誉和奖项</p>
+                <p class="lang-en">Honors and awards I've received</p>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <h3>2024.12</h3>
+                    <p class="lang-zh">北京大学优秀志愿者</p>
+                    <p class="lang-en">Peking University Outstanding Volunteer</p>
+                </div>
+                <div class="award-card">
+                    <h3>2024.10</h3>
+                    <p class="lang-zh">北京大学社会实践先进个人</p>
+                    <p class="lang-en">Peking University Social Practice Advanced Individual</p>
+                </div>
+                <div class="award-card">
+                    <h3>2023.10</h3>
+                    <p class="lang-zh">北京大学鸿彩奖学金</p>
+                    <p class="lang-en">Peking University Hongcai Scholarship</p>
+                </div>
+                <div class="award-card">
+                    <h3>2021.11</h3>
+                    <p class="lang-zh">华南理工大学十佳优秀学生模范</p>
+                    <p class="lang-en">South China University of Technology Top Ten Outstanding Student Model</p>
+                </div>
+                <div class="award-card">
+                    <h3>2021.10</h3>
+                    <p class="lang-zh">教育部国家奖学金 (前1%)</p>
+                    <p class="lang-en">Ministry of Education National Scholarship (Top 1%)</p>
+                </div>
+                <div class="award-card">
+                    <h3>2020.10</h3>
+                    <p class="lang-zh">教育部国家奖学金 (前1%)</p>
+                    <p class="lang-en">Ministry of Education National Scholarship (Top 1%)</p>
+                </div>
+                <div class="award-card">
+                    <h3>2020.10</h3>
+                    <p class="lang-zh">全国大学生数学竞赛一等奖 (广东赛区)</p>
+                    <p class="lang-en">First Prize, National College Mathematics Competition (Guangdong Division)</p>
+                </div>
+                <div class="award-card">
+                    <h3>2019.10</h3>
+                    <p class="lang-zh">华南理工大学新生奖学金</p>
+                    <p class="lang-en">South China University of Technology Freshman Scholarship</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">Chenwei <span>Zhao</span></div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                </div>
+                <p class="lang-zh">&copy; 2025 赵晨炜. 版权所有。</p>
+                <p class="lang-en">&copy; 2025 Chenwei Zhao. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 语言切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const langZh = document.getElementById('lang-zh');
+            const langEn = document.getElementById('lang-en');
+            
+            langZh.addEventListener('click', function() {
+                document.querySelectorAll('.lang-en').forEach(el => {
+                    el.style.display = 'none';
+                });
+                document.querySelectorAll('.lang-zh').forEach(el => {
+                    el.style.display = 'block';
+                });
+                langZh.classList.add('active');
+                langEn.classList.remove('active');
+            });
+            
+            langEn.addEventListener('click', function() {
+                document.querySelectorAll('.lang-zh').forEach(el => {
+                    el.style.display = 'none';
+                });
+                document.querySelectorAll('.lang-en').forEach(el => {
+                    el.style.display = 'block';
+                });
+                langEn.classList.add('active');
+                langZh.classList.remove('active');
+            });
+
+            // 导航功能
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            
+            // 初始化显示主页部分
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('home').classList.add('active');
+            
+            // 导航点击事件
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetSection = this.getAttribute('data-section');
+                    
+                    // 更新活动导航链接
+                    navLinks.forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // 显示目标部分
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    document.getElementById(targetSection).classList.add('active');
+                    
+                    // 平滑滚动到目标部分
+                    document.getElementById(targetSection).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // 研究经历折叠功能
+            const researchHeaders = document.querySelectorAll('.research-header');
+            researchHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.toggle-icon');
+                    
+                    content.classList.toggle('active');
+                    icon.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+<script>// 语言切换功能
+document.addEventListener('DOMContentLoaded', function() {
+    const langZh = document.getElementById('lang-zh');
+    const langEn = document.getElementById('lang-en');
+    
+    langZh.addEventListener('click', function() {
+        document.querySelectorAll('.lang-en').forEach(el => {
+            el.style.display = 'none';
+        });
+        document.querySelectorAll('.lang-zh').forEach(el => {
+            el.style.display = 'block';
+        });
+        langZh.classList.add('active');
+        langEn.classList.remove('active');
+    });
+    
+    langEn.addEventListener('click', function() {
+        document.querySelectorAll('.lang-zh').forEach(el => {
+            el.style.display = 'none';
+        });
+        document.querySelectorAll('.lang-en').forEach(el => {
+            el.style.display = 'block';
+        });
+        langEn.classList.add('active');
+        langZh.classList.remove('active');
+    });
+});</script></body>
+</html>
